@@ -13,8 +13,9 @@ jobs:
       - name: SILE
         id: sile
         uses: docker://siletypesetter/sile:master
-        args:
-          - mwe.sil
+        with:
+          args:
+            - mwe.sil
       - name: Upload artifacts
         uses: actions/upload-artifact@v2-preview
         with:
