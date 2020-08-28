@@ -1,0 +1,22 @@
+name: SILE
+
+on: [push]
+
+jobs:
+
+  fontship:
+    runs-on: ubuntu-20.04
+    name: SILE
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: SILE
+        id: sile
+        uses: docker://siletypesetter/sile:master
+        args:
+          - mwe.sil
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2-preview
+        with:
+          name: output
+          path: mwe.pdf
