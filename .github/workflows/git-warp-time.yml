@@ -1,0 +1,21 @@
+name: Git Warp Time
+
+on: [push]
+
+jobs:
+
+  gwt:
+    runs-on: ubuntu-22.04
+    name: Test GWT
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Confirm pre
+        run: |
+          ls -al
+      - name: Git Warp Time
+        id: gwt
+        uses: docker://ghcr.io/alerque/git-warp-time:master
+      - name: Confirm post
+        run: |
+          ls -al
