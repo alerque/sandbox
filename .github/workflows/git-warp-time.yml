@@ -9,15 +9,14 @@ jobs:
     name: Test GWT
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Confirm pre
         run: |
           ls -al
       - name: Git Warp Time
-        id: gwt
-        uses: docker://ghcr.io/alerque/git-warp-time:master
+        uses: alerque/git-warp-time@latest
       - name: Confirm post
         run: |
           ls -al
